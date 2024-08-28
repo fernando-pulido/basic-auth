@@ -2,12 +2,6 @@ import SignUp from './components/Index'
 
 import './App.css'
 
-function App() {
-  return (
-    <>
-      <SignUp />
-    </>
-  )
-}
+const App = () => <SignUp />
 
 export default App
