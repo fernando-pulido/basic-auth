@@ -1,10 +1,11 @@
+import SignUp from './components/Index'
+
 import './App.css'
-import Index from './components/Index'
 
 function App() {
   return (
     <>
-      <Index />
+      <SignUp />
     </>
   )
 }
