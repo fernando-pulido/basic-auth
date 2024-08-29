@@ -1,16 +1,19 @@
 import { useFormik } from 'formik'
+import { useTranslation } from 'react-i18next'
 import { MDBInput, MDBCol, MDBRow, MDBBtn } from 'mdb-react-ui-kit'
-import { SignupSchema } from './validation'
+
 import { SingUpForm } from './types'
+import { SignUpSchema } from './validation'
+
+import { Keys } from '../../i18n/resource'
 
 export default function SignUp() {
-  const onSubmit = (values: SingUpForm) => {
-    console.log(values)
-  }
+  const { t } = useTranslation()
+  const onSubmit = (values: SingUpForm) => console.log(values)
 
   const { handleSubmit, handleChange } = useFormik<SingUpForm>({
     initialValues: {} as SingUpForm,
-    validationSchema: SignupSchema,
+    validationSchema: SignUpSchema,
     onSubmit,
   })
 
@@ -20,7 +23,7 @@ export default function SignUp() {
         <MDBCol>
           <MDBInput
             id="firstName"
-            label="First name"
+            label={t(Keys.firstName)}
             name="firstName"
             onChange={handleChange}
           />
@@ -29,7 +32,7 @@ export default function SignUp() {
         <MDBCol>
           <MDBInput
             id="lastName"
-            label="Last name"
+            label={t(Keys.lastName)}
             name="lastName"
             onChange={handleChange}
           />
@@ -40,7 +43,7 @@ export default function SignUp() {
         className="mb-4"
         type="email"
         id="email"
-        label="Email address"
+        label={t(Keys.email)}
         name="email"
         onChange={handleChange}
       />
@@ -49,13 +52,13 @@ export default function SignUp() {
         className="mb-4"
         type="password"
         id="password"
-        label="Password"
+        label={t(Keys.password)}
         name="password"
         onChange={handleChange}
       />
 
       <MDBBtn type="submit" className="mb-4" block>
-        Sign in
+        {t(Keys.signUp)}
       </MDBBtn>
     </form>
   )
